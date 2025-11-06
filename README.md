@@ -1,0 +1,2 @@
+# skedula
+Schedula for roostering
