@@ -1,0 +1,26 @@
+@Skedula.Api_HostAddress = http://localhost:5039/api
+
+### Get All Employees
+GET {{Skedula.Api_HostAddress}}/employee
+Accept: application/json
+###
+
+### Create New Employee
+POST {{Skedula.Api_HostAddress}}/employee
+Content-Type: application/json
+{
+    "name": "Doe",
+    "role": "Andrew"
+}
+###
+
+### Get Employee by ID
+GET {{Skedula.Api_HostAddress}}/employee/1
+Accept: application/json
+###
+
+### Delete Employee
+DELETE {{Skedula.Api_HostAddress}}/employee/2
+###
+
+###
