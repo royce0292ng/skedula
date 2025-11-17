@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Skedula.Api.Data;
 using Skedula.Api.Models;
 using Skedula.Api.Services;
 
@@ -6,41 +8,107 @@ namespace Skedula.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class SchedulingController : ControllerBase
+public class ScheduleController : ControllerBase
 {
- 
-    private readonly SchedulingService _schedulingService = new();
+    private readonly ISchedulingService _schedulingService;
+    private readonly SchedulingDbContext _context;
 
-    [HttpGet("generate")]
-    public ActionResult<IEnumerable<ScheduleDay>> GenerateSchedule(int year, int month)
+    public ScheduleController(ISchedulingService schedulingService, SchedulingDbContext context)
     {
-        var employees = new List<Employee>
+        _schedulingService = schedulingService;
+        _context = context;
+    }
+
+    [HttpPost("generate")]
+    public async Task<IActionResult> GenerateSchedule([FromBody] GenerateScheduleRequest request)
+    {
+        try
         {
-            new Employee { Id = 1, Name = "Royce", Role = "Barista", Group = "B" },
-            new Employee { Id = 2, Name = "Jamie", Role = "Manager", Group = "B" },
-            new Employee { Id = 3, Name = "Alex", Role = "Cashier", Group = "A" },
-            new Employee { Id = 4, Name = "Taylor", Role = "Barista", Group = "A" },
-            new Employee { Id = 5, Name = "Morgan", Role = "Cleaner", Group = "C" },
-            new Employee { Id = 6, Name = "Chris", Role = "Supervisor", Group = "C" },
-            new Employee { Id = 7, Name = "Jordan", Role = "Kitchen Staff", Group = "A" },
-            new Employee { Id = 8, Name = "Sam", Role = "Cashier", Group = "B" },
-            new Employee { Id = 9, Name = "Charlie", Role = "Kitchen Staff", Group = "C" },
-            new Employee { Id = 10, Name = "Riley", Role = "Barista", Group = "B" },
-            new Employee { Id = 11, Name = "Avery", Role = "Cleaner", Group = "A" },
-            new Employee { Id = 12, Name = "Dakota", Role = "Barista", Group = "C" },
-            new Employee { Id = 13, Name = "Casey", Role = "Manager", Group = "A" },
-            new Employee { Id = 14, Name = "Emerson", Role = "Cashier", Group = "B" },
-            new Employee { Id = 15, Name = "Harper", Role = "Barista", Group = "C" },
-            new Employee { Id = 16, Name = "Peyton", Role = "Kitchen Staff", Group = "B" },
-            new Employee { Id = 17, Name = "Skyler", Role = "Barista", Group = "C" },
-            new Employee { Id = 18, Name = "Rowan", Role = "Cashier", Group = "A" },
-            new Employee { Id = 19, Name = "Jordan", Role = "Manager", Group = "A" },
-            new Employee { Id = 20, Name = "Cameron", Role = "Kitchen Staff", Group = "B" }
-        };
+            var schedules = await _schedulingService.GenerateScheduleAsync(request.StartDate, request.EndDate);
+            return Ok(new { success = true, count = schedules.Count, schedules });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { success = false, error = ex.Message });
+        }
+    }
 
+    [HttpGet("range")]
+    public async Task<IActionResult> GetScheduleRange([FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
+    {
+        var schedules = await _context.Schedules
+            .Include(s => s.Employee)
+            .Include(s => s.ShiftType)
+            .Where(s => s.Date >= startDate && s.Date <= endDate)
+            .OrderBy(s => s.Date)
+            .ThenBy(s => s.Employee.Name)
+            .ToListAsync();
 
-        var schedule = _schedulingService.GenerateMonthlySchedule(employees, year, month);
+        return Ok(schedules);
+    }
+
+    [HttpGet("employee/{employeeId}")]
+    public async Task<IActionResult> GetEmployeeSchedule(int employeeId, [FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate)
+    {
+        var start = startDate ?? DateTime.Today;
+        var end = endDate ?? DateTime.Today.AddDays(30);
+
+        var schedules = await _context.Schedules
+            .Include(s => s.ShiftType)
+            .Where(s => s.EmployeeId == employeeId && s.Date >= start && s.Date <= end)
+            .OrderBy(s => s.Date)
+            .ToListAsync();
+
+        return Ok(schedules);
+    }
+
+    [HttpPut("{scheduleId}")]
+    public async Task<IActionResult> UpdateSchedule(int scheduleId, [FromBody] UpdateScheduleRequest request)
+    {
+        var schedule = await _context.Schedules.FindAsync(scheduleId);
+        
+        if (schedule == null)
+            return NotFound();
+
+        schedule.ShiftTypeId = request.ShiftTypeId;
+        schedule.IsAutoAssigned = false;
+        schedule.Notes = request.Notes;
+
+        await _context.SaveChangesAsync();
+
         return Ok(schedule);
     }
-    
+
+    [HttpDelete("{scheduleId}")]
+    public async Task<IActionResult> DeleteSchedule(int scheduleId)
+    {
+        var schedule = await _context.Schedules.FindAsync(scheduleId);
+        
+        if (schedule == null)
+            return NotFound();
+
+        _context.Schedules.Remove(schedule);
+        await _context.SaveChangesAsync();
+
+        return Ok(new { success = true });
+    }
+
+    [HttpGet("validate")]
+    public async Task<IActionResult> ValidateSchedule([FromQuery] DateTime date)
+    {
+        var isValid = await _schedulingService.ValidateScheduleAsync(date);
+        return Ok(new { date, isValid });
+    }
+}
+
+public class GenerateScheduleRequest
+{
+    public DateTime StartDate { get; set; }
+    public DateTime EndDate { get; set; }
+}
+
+public class UpdateScheduleRequest
+{
+    public int ShiftTypeId { get; set; }
+    public string Notes { get; set; }
 }

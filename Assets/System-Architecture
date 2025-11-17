@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="System-Architecture"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.0333895"
+     inkscape:cx="350.7874"
+     inkscape:cy="566.09829"
+     inkscape:window-width="2560"
+     inkscape:window-height="1371"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       id="grid9"
+       units="mm"
+       originx="0"
+       originy="0"
+       spacingx="0.99999998"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="marker9"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Colored triangle"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ColoredTriangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Colored triangle"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path5" />
+    </marker>
+    <rect
+       x="672.54412"
+       y="293.20988"
+       width="69.673636"
+       height="58.061363"
+       id="rect8" />
+    <marker
+       style="overflow:visible"
+       id="ColoredTriangle-7"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Colored triangle"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path5-5" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker9-3"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Colored triangle"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path9-5" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.24310303,-11.188179)">
+    <rect
+       style="fill:#808080;stroke-width:0.264583"
+       id="rect1"
+       width="85.003448"
+       height="51.718964"
+       x="62.984482"
+       y="41.477585" />
+    <text
+       xml:space="preserve"
+       style="font-size:5.26866px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:0.439055"
+       x="71.051407"
+       y="67.136002"
+       id="text2"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.439055"
+         x="71.051407"
+         y="67.136002"
+         id="tspan3">• Roster calendar view </tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.439055"
+         x="71.051407"
+         y="73.721825"
+         id="tspan4">• Employee summary view   </tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.439055"
+         x="71.051407"
+         y="80.307655"
+         id="tspan6">• Shift editor </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9.75097px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#808080;stroke-width:0.812581"
+       x="66.980988"
+       y="53.900333"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="fill:#000000;stroke-width:0.812581"
+         x="66.980988"
+         y="53.900333">Frontend (React)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:0.264583"
+       x="167.95862"
+       y="123.66466"
+       id="text8"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         style="stroke-width:0.264583"
+         x="167.95862"
+         y="123.66466" /></text>
+    <path
+       style="display:inline;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.965;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#ColoredTriangle);marker-end:url(#marker9)"
+       d="m 105,94.22069 v 35.84483"
+       id="path8"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:#808080;stroke-width:0.29131"
+       id="rect1-2"
+       width="87.175972"
+       height="61.133236"
+       x="62.498276"
+       y="133.6949" />
+    <text
+       xml:space="preserve"
+       style="font-size:5.26866px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:0.439055"
+       x="67.068443"
+       y="153.922"
+       id="text2-1"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.439055"
+         x="67.068443"
+         y="153.922"
+         id="tspan6-0">Controllers → /api/roster</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.439055"
+         x="67.068443"
+         y="160.80222"
+         id="tspan15">Services → SchedulingService </tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.439055"
+         x="67.068443"
+         y="167.68242"
+         id="tspan19">Models → Employee, Shift, etc</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.439055"
+         x="67.068443"
+         y="174.56264"
+         id="tspan18">- Generates monthly </tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.439055"
+         x="67.068443"
+         y="181.14845"
+         id="tspan17">- Cycles shift </tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.439055"
+         x="67.068443"
+         y="187.73428"
+         id="tspan16"> - Returns data to frontend </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9.75097px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#808080;stroke-width:0.812581"
+       x="66.980988"
+       y="146.11765"
+       id="text1-9"><tspan
+         sodipodi:role="line"
+         id="tspan1-3"
+         style="fill:#000000;stroke-width:0.812581"
+         x="66.980988"
+         y="146.11765">Backend (.NET)</tspan></text>
+    <path
+       style="display:inline;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.811747;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#ColoredTriangle-7);marker-end:url(#marker9-3)"
+       d="M 105,198.01509 V 223.3788"
+       id="path8-6"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:#808080;stroke-width:0.264583"
+       id="rect1-9"
+       width="85.003448"
+       height="51.718964"
+       x="62.498276"
+       y="226.17981" />
+    <text
+       xml:space="preserve"
+       style="font-size:5.26866px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:0.439055"
+       x="71.051407"
+       y="251.83823"
+       id="text2-0"
+       inkscape:label="text2-0"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.439055"
+         x="71.051407"
+         y="251.83823"
+         id="tspan6-9" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9.75097px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#808080;stroke-width:0.812581"
+       x="66.980988"
+       y="238.60255"
+       id="text1-2"><tspan
+         sodipodi:role="line"
+         style="fill:#000000;stroke-width:0.812581"
+         x="66.980988"
+         y="238.60255"
+         id="tspan20">DataBase</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.03095px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:1.52908;stroke-dasharray:none"
+       x="67.707893"
+       y="244.73503"
+       id="text22"><tspan
+         sodipodi:role="line"
+         id="tspan22"
+         style="stroke-width:1.52909"
+         x="67.707893"
+         y="244.73503">In-memory / Database</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:1.52909"
+         x="67.707893"
+         y="251.02371"
+         id="tspan23">Tables:</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:1.52909"
+         x="67.707893"
+         y="257.31241"
+         id="tspan27">Employees</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:1.52909"
+         x="67.707893"
+         y="263.6011"
+         id="tspan25">Shifts</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:1.52909"
+         x="67.707893"
+         y="269.88977"
+         id="tspan26">ShiftBlocks (static)</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:1.52909"
+         x="67.707893"
+         y="276.17847"
+         id="tspan24" /></text>
+  </g>
+</svg>
