@@ -92,6 +92,63 @@ public class EmployeeController : ControllerBase
 
         return Ok(metric);
     }
+    
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteEmployee(int id)
+    {
+        var employee = await _context.Employees.FindAsync(id);
+    
+        if (employee == null)
+            return NotFound(new { message = "Employee not found" });
+
+        // Check if employee has any schedules
+        var hasSchedules = await _context.Schedules
+            .AnyAsync(s => s.EmployeeId == id);
+
+        if (hasSchedules)
+        {
+            // Soft delete - just mark as inactive
+            employee.IsActive = false;
+            await _context.SaveChangesAsync();
+        
+            return Ok(new 
+            { 
+                message = "Employee deactivated (has existing schedules)",
+                employeeId = id,
+                isActive = false
+            });
+        }
+        else
+        {
+            // Hard delete - no schedules exist
+        
+            // Delete fatigue metrics first (foreign key)
+            var fatigueMetric = await _context.EmployeeFatigueMetrics
+                .FirstOrDefaultAsync(fm => fm.EmployeeId == id);
+        
+            if (fatigueMetric != null)
+            {
+                _context.EmployeeFatigueMetrics.Remove(fatigueMetric);
+            }
+
+            // Delete leave requests
+            var leaveRequests = await _context.LeaveRequests
+                .Where(lr => lr.EmployeeId == id)
+                .ToListAsync();
+        
+            _context.LeaveRequests.RemoveRange(leaveRequests);
+
+            // Delete employee
+            _context.Employees.Remove(employee);
+            await _context.SaveChangesAsync();
+
+            return Ok(new 
+            { 
+                message = "Employee permanently deleted",
+                employeeId = id
+            });
+        }
+    }
 }
 
 public class CreateEmployeeRequest
